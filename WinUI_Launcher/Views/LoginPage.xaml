@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="WinUI_Launcher.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:models="using:WinUI_Launcher.Core.Models"
+    xmlns:views="using:WinUI_Launcher.Views"
+    xmlns:behaviors="using:WinUI_Launcher.Behaviors"
+    behaviors:NavigationViewHeaderBehavior.HeaderMode="Never"
+    mc:Ignorable="d">
+
+    <Grid x:Name="ContentArea">
+		<Grid MaxWidth="1280" Background="#2B2D30">
+			<Grid Width="600" Height="400">
+				<Grid HorizontalAlignment="Left" Width="200" Background="#161718">
+					<Image Width="200" Source="https://logosmarcas.net/wp-content/uploads/2020/12/Discord-Logo.png"/>
+				</Grid>
+				<Grid HorizontalAlignment="Right" Width="400" Background="#43464B">
+                    <Image Source="https://cdn.dribbble.com/users/989466/screenshots/4510162/discord-wallpaper.png" Stretch="UniformToFill"/>
+					<Button x:Name="btnTest" Style="{ThemeResource NewAccentButtonStyle}" Content="Login With Discord" Height="30" Click="onClick" HorizontalAlignment="Center" IsEnabled="{x:Bind ViewModel.LoginButtonEnabled, Mode=OneWay}"/>
+				</Grid>
+			</Grid>
+			
+		</Grid>
+    </Grid>
+</Page>

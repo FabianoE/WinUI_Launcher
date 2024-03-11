@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="WinUI_Launcher.Views.MainNewsInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:WinUI_Launcher.Classes"
+    mc:Ignorable="d">
+
+
+    <Grid x:Name="ContentArea">
+
+        <Grid Width="500" Height="150"  Margin="0,16,0,0" CornerRadius="8" Background="{ThemeResource SocMedPanelAcrylicBrush}">
+            <StackPanel>
+                <Pivot HorizontalAlignment="Left" Margin="0,-12,-16,0" SelectedIndex="0">
+                    <PivotItem>
+                        <PivotItem.Header>
+                            <TextBlock Text="News" FontSize="16" FontWeight="Bold" Margin="0,0,0,-8"/>
+                        </PivotItem.Header>
+                        <Grid>
+                            <ScrollViewer VerticalScrollMode="Auto" Margin="0,8,0,0" Visibility="Visible">
+                                <StackPanel Margin="0,0,16,10">
+                                    <ItemsControl ItemsSource="{x:Bind local:RegionListHelper.regionAnnounce.News}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button HorizontalAlignment="Stretch" Tag="{Binding url}" Click="OpenButtonLinkFromTag">
+                                                    <Button.Template>
+                                                        <ControlTemplate>
+                                                            <Grid ToolTipService.ToolTip="{Binding title}" HorizontalAlignment="Stretch" Margin="0,2" Background="Transparent">
+                                                                <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding title}"
+                                                                                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,56,0"
+                                                                                   Foreground="{ThemeResource TextFillColorPrimary}"/>
+                                                                <TextBlock Text="{Binding show_time}" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{ThemeResource AccentColor}"/>
+                                                            </Grid>
+                                                        </ControlTemplate>
+                                                    </Button.Template>
+                                                </Button>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </PivotItem>
+                </Pivot>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Page>
